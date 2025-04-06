@@ -38,8 +38,6 @@ ps      6       RUNNING     INDIGO   1
 
 ### The scheduler
 
-~Most of the code for the scheduler is quite localized and can be found in proc.c; the associated header file, proc.h is also quite useful to examine. To change the scheduler, not much needs to be done; study its control flow and then try some small changes.~
-
 You'll need to assign tickets to a process when it is created. Specfically, you'll need to make sure a child process inherits the same number of tickets as its parents. Thus, if the parent has 10 tickets, and calls fork() to create a child process, the child should also get 10 tickets.
 
 You'll also need to figure out how to generate random numbers in the kernel; some searching should lead you to a simple pseudo-random number generator, which you can then include in the kernel and use as appropriate.
@@ -65,13 +63,6 @@ struct pstat {
 
 #endif // _PSTAT_H_
 ```
-## Graph and Test Application
-
-~You'll have to make a graph for this assignment. The graph should show the number of time slices a set of three processes receives~
-~over time, where the processes have a 3:2:1 ratio of tickets (e.g., process A might have 30 tickets, process B 20, and process C 10). The graph is likely to be pretty boring, but should clearly show that your lottery scheduler works as desired.  The graph must be submitted as a PDF file at the top level of your repo.~
-
-~To gather this data you will need to write an application that forks three children and each child runs measuring the amount of the processor time each gets.~
-
 ## SUBMITTING
 
 Push all your changes to your main branch.  
